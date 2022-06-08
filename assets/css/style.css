@@ -13,3 +13,14 @@ body {
   width: 100vh;
   background: #312e2b;
 }
+
+/* ----------------------- */
+
+.chess-table {
+  height: 400px;
+  width: 400px;
+  display: flex;
+}
+
+.piece-box {
+}
