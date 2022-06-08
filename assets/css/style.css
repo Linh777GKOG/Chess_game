@@ -35,3 +35,30 @@ body {
   width: 40px;
   height: 40px;
 } */
+
+/* --------------------------------- */
+
+.piece-box.white-box {
+  background: #eeeed2;
+}
+
+.piece-box.black-box {
+  background: #769656;
+}
+
+/* --------------------------------- */
+
+@media only screen and (min-device-width: 320px) and (min-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .chess-table {
+    height: 240px;
+    width: 240px;
+  }
+
+  .piece-box {
+    width: 30px;
+    height: 30px;
+
+  }
+
+  img
+}
