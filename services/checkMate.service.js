@@ -23,5 +23,14 @@ export const checkMate = {
 
     tempPieceBoxElement.append(clonePieceElement);
     pieceElementSelected.remove();
+
+    ///
+
+    const newDeterminations = deepclone(piecesDetermine.determinations);
+    piecesDetermine.determinationsSelector = "potentialDeterminations";
+    piecesDetermine.determinations = newDeterminations;
+
+    delete piecesDetermine.determinations[pieceSelectedPosition];
+    piecesDetermine.determinations[pieceBoxPosition] = {};
   },
 };
