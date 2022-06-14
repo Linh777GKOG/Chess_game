@@ -1,16 +1,16 @@
-import pawn from "./piecesDetermine/pawn.js";
-import knight from "./piecesDetermine/knight.js";
-import rook from "./piecesDetermine/rook.js";
-import bishop from "./piecesDetermine/bishop.js";
-import queen from "./piecesDetermine/queen.js";
-import { $, $$, $$$ } from "../utils/utils.js";
-import { chessConfig } from "../config/chessConfig.config.js";
-import { playerTurn } from "../services/playerTurn.service.js";
-import king from "./piecesDetermine/king.js";
-import knightKingHelpers from "./piecesDetermine/helpers/knightKing.helpers.js";
+import pawn from './piecesDetermine/pawn.js';
+import knight from './piecesDetermine/knight.js';
+import rook from './piecesDetermine/rook.js';
+import bishop from './piecesDetermine/bishop.js';
+import queen from './piecesDetermine/queen.js';
+import { $, $$, $$$ } from '../utils/utils.js';
+import { chessConfig } from '../config/chessConfig.config.js';
+import { playerTurn } from '../services/playerTurn.service.js';
+import king from './piecesDetermine/king.js';
+import knightKingHelpers from './piecesDetermine/helpers/knightKing.helpers.js';
 
 export const piecesDetermine = {
-  determinationsSelector: "currentDeterminations",
+  determinationsSelector: 'currentDeterminations',
 
   _determinations: {
     currentDeterminations: {},
@@ -50,12 +50,12 @@ export const piecesDetermine = {
       const pieceElement = $$$(pieceBoxElement, chessConfig.chessPieceSelector);
       if (!pieceElement) continue;
 
-      const pieceBoxPosition = pieceBoxElement.getAttribute("id");
-      const pieceType = pieceElement?.getAttribute("piece-type") ?? null;
+      const pieceBoxPosition = pieceBoxElement.getAttribute('id');
+      const pieceType = pieceElement?.getAttribute('piece-type') ?? null;
       const isWhitePiece = playerTurn.isWhitePiece(pieceType);
       const pieceSingleType = pieceType
-        .replace("white_", "")
-        .replace("black_", "");
+        .replace('white_', '')
+        .replace('black_', '');
 
       currentPieceboxPositions.push({
         pieceBoxElement,
@@ -107,12 +107,12 @@ export const piecesDetermine = {
 };
 
 const pieceDetermineConfig = {
-  pawn: "determinePawn",
-  knight: "determineKnight",
-  rook: "determineRook",
-  bishop: "determineBishop",
-  queen: "determineQueen",
-  king: "determineKing",
+  pawn: 'determinePawn',
+  knight: 'determineKnight',
+  rook: 'determineRook',
+  bishop: 'determineBishop',
+  queen: 'determineQueen',
+  king: 'determineKing',
 };
 
 window.piecesDetermine = piecesDetermine;
