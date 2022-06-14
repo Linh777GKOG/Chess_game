@@ -1,7 +1,7 @@
-import { piecesDetermine } from "./piecesDetermine.service.js";
-import { $, $$$, deepclone } from "../utils/utils.js";
-import { chessConfig } from "../config/chessConfig.config.js";
-import { playerTurn } from "./playerTurn.service.js";
+import { piecesDetermine } from './piecesDetermine.service.js';
+import { $, $$$, deepclone } from '../utils/utils.js';
+import { chessConfig } from '../config/chessConfig.config.js';
+import { playerTurn } from './playerTurn.service.js';
 
 export const checkMate = {
   gameOver: false,
@@ -38,7 +38,7 @@ export const checkMate = {
     //////////
 
     const newDeterminations = deepclone(piecesDetermine.determinations);
-    piecesDetermine.determinationsSelector = "potentialDeterminations";
+    piecesDetermine.determinationsSelector = 'potentialDeterminations';
     piecesDetermine.determinations = newDeterminations;
 
     delete piecesDetermine.determinations[pieceSelectedPosition];
@@ -53,12 +53,12 @@ export const checkMate = {
           pieceBoxElement,
           chessConfig.chessPieceSelector
         );
-        const pieceType = pieceElement?.getAttribute("piece-type") ?? null;
+        const pieceType = pieceElement?.getAttribute('piece-type') ?? null;
         const isWhitePiece = playerTurn.isWhitePiece(pieceType);
         const isBlackPiece = playerTurn.isBlackPiece(pieceType);
         const pieceSingleType = pieceType
-          .replace("white_", "")
-          .replace("black_", "");
+          .replace('white_', '')
+          .replace('black_', '');
 
         if ((isWhiteTurn && !isBlackPiece) || (!isWhiteTurn && !isWhitePiece)) {
           return null;
@@ -89,17 +89,17 @@ export const checkMate = {
       ),
     ].includes(kingPiecePosition);
 
-    piecesDetermine.determinationsSelector = "currentDeterminations";
+    piecesDetermine.determinationsSelector = 'currentDeterminations';
     piecesDetermine.generateDeterminations();
 
     return result;
   },
   getKingPiecePosition({ isWhitePiece = true }) {
     const kingPieceBoxElement = $(
-      `[piece-type="${isWhitePiece ? "white" : "black"}_king"]`
+      `[piece-type="${isWhitePiece ? 'white' : 'black'}_king"]`
     ).closest(chessConfig.chessPieceBoxSelector);
 
-    const kingPiecePosition = kingPieceBoxElement.getAttribute("id");
+    const kingPiecePosition = kingPieceBoxElement.getAttribute('id');
 
     return kingPiecePosition;
   },
@@ -115,7 +115,7 @@ export const checkMate = {
             pieceBoxElement,
             chessConfig.chessPieceSelector
           );
-          const pieceType = pieceElement?.getAttribute("piece-type") ?? null;
+          const pieceType = pieceElement?.getAttribute('piece-type') ?? null;
 
           return !(
             (isWhiteTurn && !playerTurn.isWhitePiece(pieceType)) ||
@@ -146,18 +146,18 @@ export const checkMate = {
   blackWinsMessage() {
     const blackWinsElement = $(chessConfig.blackWinsSelector);
     console.log(blackWinsElement);
-    blackWinsElement.style.display = "block";
+    blackWinsElement.style.display = 'block';
   },
   whiteWinsMessage() {
     const whiteWinsElement = $(chessConfig.whiteWinsSelector);
-    whiteWinsElement.style.display = "block";
+    whiteWinsElement.style.display = 'block';
   },
   resetCheckMateMessages() {
     const blackWinsElement = $(chessConfig.blackWinsSelector);
     const whiteWinsElement = $(chessConfig.whiteWinsSelector);
 
-    blackWinsElement.style.display = "none";
-    whiteWinsElement.style.display = "none";
+    blackWinsElement.style.display = 'none';
+    whiteWinsElement.style.display = 'none';
   },
 };
 
